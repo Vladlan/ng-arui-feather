@@ -6,18 +6,14 @@ import {CommonModule} from '@angular/common';
     selector: '[pButton]'
 })
 export class ButtonDirective implements AfterViewInit, OnDestroy {
-
     @Input() iconPos: 'left' | 'right' = 'left';
-
     @Input() cornerStyleClass = 'ui-corner-all';
-
     public _label: string;
-
     public _icon: string;
-
     public initialized: boolean;
 
-    constructor(public el: ElementRef) {}
+    constructor(public el: ElementRef) {
+    }
 
     ngAfterViewInit() {
         // DomHandler.addMultipleClasses(this.el.nativeElement, this.getStyleClass());
@@ -25,7 +21,7 @@ export class ButtonDirective implements AfterViewInit, OnDestroy {
             const iconElement = document.createElement('span');
             iconElement.setAttribute('aria-hidden', 'true');
             const iconPosClass = (this.iconPos === 'right') ? 'ui-button-icon-right' : 'ui-button-icon-left';
-            iconElement.className = iconPosClass  + ' ui-clickable ' + this.icon;
+            iconElement.className = iconPosClass + ' ui-clickable ' + this.icon;
             this.el.nativeElement.appendChild(iconElement);
         }
 
@@ -106,7 +102,31 @@ export class ButtonDirective implements AfterViewInit, OnDestroy {
 
 @Component({
     selector: 'p-button',
-    template: './button.component.html'
+    template: `
+        <button [attr.type]="type"
+                [class]="styleClass"
+                [ngStyle]="style"
+                [disabled]="disabled"
+                [ngClass]="{
+                        'ui-button ui-widget ui-state-default ui-corner-all':true,
+                        'ui-button-icon-only': (icon && !label),
+                        'ui-button-text-icon-left': (icon && label && iconPos === 'left'),
+                        'ui-button-text-icon-right': (icon && label && iconPos === 'right'),
+                        'ui-button-text-only': (!icon && label),
+                        'ui-button-text-empty': (!icon && !label),
+                        'ui-state-disabled': disabled}"
+                (click)="onClick.emit($event)"
+                (focus)="onFocus.emit($event)"
+                (blur)="onBlur.emit($event)">
+            <ng-content></ng-content>
+            <span [ngClass]="{
+                        'ui-clickable': true,
+                        'ui-button-icon-left': (iconPos === 'left'),
+                        'ui-button-icon-right': (iconPos === 'right')
+                      }" [class]="icon" *ngIf="icon"></span>
+            <span class="ui-button-text ui-clickable">{{label || 'ui-btn'}}</span>
+        </button>
+    `
 })
 export class Button {
     @Input() type: string;
@@ -120,9 +140,11 @@ export class Button {
     @Output() onFocus: EventEmitter<any> = new EventEmitter();
     @Output() onBlur: EventEmitter<any> = new EventEmitter();
 }
+
 @NgModule({
     imports: [CommonModule],
     exports: [ButtonDirective, Button],
     declarations: [ButtonDirective, Button]
 })
-export class ButtonModule { }
+export class ButtonModule {
+}
