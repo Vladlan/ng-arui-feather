@@ -6,7 +6,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'ng-arui-feather';
+  buttons = [
+    { size: 'xl', name: 'Оплатить' },
+    { size: 'l', name: 'Оплатить' },
+    { size: 'm', name: 'Оплатить' },
+    { size: 's', name: 'Оплатить' }
+  ];
 
   handleClick() {
     console.log('click');

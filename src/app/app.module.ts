@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { ButtonModule } from './button/button.component';
+import { ButtonModule } from './common/button/button.component';
 
 @NgModule({
   declarations: [
