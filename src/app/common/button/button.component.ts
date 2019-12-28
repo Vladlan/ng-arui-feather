@@ -2,7 +2,7 @@ import {Component, EventEmitter, Input, NgModule, Output, ViewEncapsulation} fro
 import {CommonModule} from '@angular/common';
 
 @Component({
-    selector: 'p-button',
+    selector: 'aru-button',
     styleUrls: ['./button.component.scss', './button_theme_alfa-on-color.scss', './button_theme_alfa-on-white.scss'],
     template: `
         <button [attr.type]="type"
@@ -19,6 +19,8 @@ import {CommonModule} from '@angular/common';
                         'button_view_action': view === 'action',
                         'button_view_extra': view === 'extra',
                         'button_view_rounded': view === 'rounded',
+                        'button_pseudo': pseudo,
+                        'button_width_available': width === 'available',
                         'button_disabled': disabled}"
                 (click)="onClick.emit($event)"
                 (focus)="onFocus.emit($event)"
@@ -44,7 +46,9 @@ export class Button {
     @Input() type: string;
     @Input() iconPos = 'left';
     @Input() icon: string;
+    @Input() width: string;
     @Input() size: string;
+    @Input() pseudo: boolean;
     @Input() tabIndex: number;
     @Input() view: string;
     @Input() label: string;
