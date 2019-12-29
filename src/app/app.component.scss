@@ -1,4 +1,19 @@
+:host{
+  display: block;
+  position: relative;
+}
+
 .nav_vertical {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 200px;
   display: flex;
   flex-direction: column;
+}
+
+.app_content {
+  position: absolute;
+  left: 200px;
+  top: 0;
 }

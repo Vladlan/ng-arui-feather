@@ -4,7 +4,7 @@ import {Component, ViewEncapsulation} from '@angular/core';
 @Component({
     selector: 'aru-buttons',
     template: `
-        <div style="border: 1px solid red; width: 100%; min-height: 200px;">
+        <div style="width: 100%; min-height: 200px;">
             <aru-heading size="xl" text="Button Component">
             </aru-heading>
             <aru-heading size="l" text="Главная кнопка">

@@ -4,7 +4,7 @@
     <a routerLink="/buttons" routerLinkActive="active">Buttons</a>
     <a routerLink="/icons" routerLinkActive="active">Icons</a>
 </nav>
-<div [@routeAnimation]="getAnimationData(routerOutlet)">
+<div class="app_content" [@routeAnimation]="getAnimationData(routerOutlet)">
     <router-outlet #routerOutlet="outlet"></router-outlet>
 </div>
-<router-outlet name="popup"></router-outlet>
+<!--<router-outlet name="popup"></router-outlet>-->
