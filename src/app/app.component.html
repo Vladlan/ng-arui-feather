@@ -52,6 +52,17 @@
     >
     </aru-button>
 
+    <aru-heading size="l" text="С иконкой">
+    </aru-heading>
+    <aru-button
+            *ngFor="let button of buttonsWithIcons"
+            label="{{button.name}}"
+            size="{{button.size}}"
+            icon="bank-2449"
+            (click)="handleClick($event)"
+    >
+    </aru-button>
+
     <aru-heading size="l" text="Со 100% шириной">
     </aru-heading>
     <aru-button
@@ -73,6 +84,15 @@
             (click)="handleClick($event)"
     >
     </aru-button>
+
+    <hr>
+
+    <aru-icon-currency-eur colored="{{true}}"></aru-icon-currency-eur>
+    <aru-icon-bank-2449></aru-icon-bank-2449>
+    <aru-icon-bank-2449 colored="{{true}}"></aru-icon-bank-2449>
+
+
+
 </div>
 
 <router-outlet></router-outlet>

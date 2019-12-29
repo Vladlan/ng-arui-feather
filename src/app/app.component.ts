@@ -30,6 +30,12 @@ export class AppComponent {
     { size: 'm', name: 'Заказать карту' },
     { size: 's', name: 'Заказать карту' }
   ];
+  buttonsWithIcons = [
+    { size: 'xl', name: 'Скачать' },
+    { size: 'l', name: 'Скачать' },
+    { size: 'm', name: 'Скачать' },
+    { size: 's', name: 'Скачать' }
+  ];
   roundedButtons = [
     { size: 'xl', name: 'Продолжить' },
     { size: 'l', name: 'Продолжить' },

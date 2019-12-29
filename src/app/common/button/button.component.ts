@@ -1,5 +1,6 @@
 import {Component, EventEmitter, Input, NgModule, Output, ViewEncapsulation} from '@angular/core';
 import {CommonModule} from '@angular/common';
+import {IconModule} from '../icon/icon.component';
 
 @Component({
     selector: 'aru-button',
@@ -26,15 +27,11 @@ import {CommonModule} from '@angular/common';
                 (focus)="onFocus.emit($event)"
                 (blur)="onBlur.emit($event)">
             <ng-content></ng-content>
-            <span *ngIf="icon"
-                  [ngClass]="{
-                        'ui-clickable': true,
-                        'ui-button-icon-left': (iconPos === 'left'),
-                        'ui-button-icon-right': (iconPos === 'right')
-                      }"
-                  [class]="icon"
-            >
-            </span>
+            <aru-icon *ngIf="icon"
+                      name="{{icon}}"
+                      size="{{size}}"
+                      colored="{{colored}}"
+            ></aru-icon>
             <span>
                 {{label || 'ui-btn'}}
             </span>
@@ -53,6 +50,7 @@ export class Button {
     @Input() view: string;
     @Input() label: string;
     @Input() disabled: boolean;
+    @Input() colored: boolean;
     @Input() style: any;
     @Input() styleClass: string;
     @Output() onClick: EventEmitter<any> = new EventEmitter();
@@ -61,7 +59,7 @@ export class Button {
 }
 
 @NgModule({
-    imports: [CommonModule],
+    imports: [CommonModule, IconModule],
     exports: [Button],
     declarations: [Button]
 })
