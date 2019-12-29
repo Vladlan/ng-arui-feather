@@ -1,98 +1,10 @@
-<div style="border: 1px solid red; width: 100%; min-height: 200px;">
-    <aru-heading size="xl" text="Button Component">
-    </aru-heading>
-    <aru-heading size="l" text="Главная кнопка">
-    </aru-heading>
-    <aru-button
-            *ngFor="let button of mainButtons"
-            label="{{button.name}}"
-            size="{{button.size}}"
-            view="extra"
-            (click)="handleClick($event)"
-    >
-    </aru-button>
-    <br>
-    <aru-button
-            *ngFor="let button of mainButtons"
-            label="{{button.name}}"
-            size="{{button.size}}"
-            view="extra"
-            disabled={{true}}
-            (click)="handleClick($event)"
-    >
-    </aru-button>
-
-    <aru-heading size="l" text="Обычная кнопка">
-    </aru-heading>
-    <aru-button
-            *ngFor="let button of buttons"
-            label="{{button.name}}"
-            size="{{button.size}}"
-            (click)="handleClick($event)"
-    >
-    </aru-button>
-    <br>
-    <aru-button
-            *ngFor="let button of buttons"
-            label="{{button.name}}"
-            size="{{button.size}}"
-            disabled={{true}}
-            (click)="handleClick($event)"
-    >
-    </aru-button>
-
-    <aru-heading size="l" text="Псевдокнопка">
-    </aru-heading>
-    <aru-button
-            *ngFor="let button of pseudoButtons"
-            label="{{button.name}}"
-            size="{{button.size}}"
-            pseudo="{{true}}"
-            (click)="handleClick($event)"
-    >
-    </aru-button>
-
-    <aru-heading size="l" text="С иконкой">
-    </aru-heading>
-    <aru-button
-            *ngFor="let button of buttonsWithIcons"
-            label="{{button.name}}"
-            size="{{button.size}}"
-            icon="bank-2449"
-            (click)="handleClick($event)"
-    >
-    </aru-button>
-
-    <aru-heading size="l" text="Со 100% шириной">
-    </aru-heading>
-    <aru-button
-            *ngFor="let button of widthButtons"
-            label="{{button.name}}"
-            size="{{button.size}}"
-            width="available"
-            (click)="handleClick($event)"
-    >
-    </aru-button>
-
-    <aru-heading size="l" text="Кнопка со скруглёнными углами">
-    </aru-heading>
-    <aru-button
-            *ngFor="let button of roundedButtons"
-            label="{{button.name}}"
-            size="{{button.size}}"
-            view="rounded"
-            (click)="handleClick($event)"
-    >
-    </aru-button>
-
-    <hr>
-
-    <aru-icon-currency-eur colored="{{true}}"></aru-icon-currency-eur>
-    <aru-icon-bank-2449></aru-icon-bank-2449>
-    <aru-icon-bank-2449 colored="{{true}}"></aru-icon-bank-2449>
-
-
-
-</div>
-
 <router-outlet></router-outlet>
+
+<nav class="nav_vertical">
+    <a routerLink="/buttons" routerLinkActive="active">Buttons</a>
+    <a routerLink="/icons" routerLinkActive="active">Icons</a>
+</nav>
+<div [@routeAnimation]="getAnimationData(routerOutlet)">
+    <router-outlet #routerOutlet="outlet"></router-outlet>
+</div>
+<router-outlet name="popup"></router-outlet>
