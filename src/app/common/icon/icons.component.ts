@@ -1,4 +1,3 @@
-/* tslint:disable:variable-name */
 import {Component, ViewEncapsulation} from '@angular/core';
 
 @Component({

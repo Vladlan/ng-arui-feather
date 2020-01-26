@@ -3,7 +3,11 @@ import {CommonModule} from '@angular/common';
 
 @Component({
     selector: 'aru-icon',
-    styleUrls: ['./icon.component.scss'],
+    styleUrls: [
+      './icon.component.scss',
+      './currency/currency-eur/currency-eur.component.scss',
+      './currency/bank-2449/bank-2449.component.scss'
+    ],
     template: `
         <span [class]="styleClass"
               [ngStyle]="style"

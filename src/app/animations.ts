@@ -13,12 +13,12 @@ export const slideInAnimation =
         style({
           position: 'absolute',
           top: 0,
-          left: 0,
-          width: '100%'
+          left: '200px',
+          width: 'calc(100% - 200px)'
         })
       ]),
       query(':enter', [
-        style({ left: '-100%'})
+        style({ left: 'calc(100% - 200px)'})
       ]),
       query(':leave', animateChild()),
       group([
