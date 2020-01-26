@@ -1,8 +1,9 @@
 <router-outlet></router-outlet>
 
 <nav class="nav_vertical">
-    <a routerLink="/buttons" routerLinkActive="active">Buttons</a>
-    <a routerLink="/icons" routerLinkActive="active">Icons</a>
+    <a routerLink="/buttons" routerLinkActive="active">Button</a>
+    <a routerLink="/collapses" routerLinkActive="active">Collapse</a>
+    <a routerLink="/icons" routerLinkActive="active">Icon</a>
 </nav>
 <div class="app_content" [@routeAnimation]="getAnimationData(routerOutlet)">
     <router-outlet #routerOutlet="outlet"></router-outlet>
