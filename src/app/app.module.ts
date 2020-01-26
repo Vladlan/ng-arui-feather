@@ -11,12 +11,16 @@ import {IconBank2449Module} from './common/icon/currency/bank-2449/bank-2449.com
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {Buttons} from './common/button/buttons.component';
 import {Icons} from './common/icon/icons.component';
+import {HolderWrapper} from './common/button/holderWrapper.component';
+import {Holder} from './common/button/holder.component';
 
 @NgModule({
     declarations: [
         AppComponent,
         Buttons,
-        Icons
+        Icons,
+        Holder,
+        HolderWrapper
     ],
     imports: [
         BrowserModule,

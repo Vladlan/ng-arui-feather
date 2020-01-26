@@ -3,6 +3,7 @@
 <nav class="nav_vertical">
     <a routerLink="/buttons" routerLinkActive="active">Buttons</a>
     <a routerLink="/icons" routerLinkActive="active">Icons</a>
+    <holder-wrapper></holder-wrapper>
 </nav>
 <div class="app_content" [@routeAnimation]="getAnimationData(routerOutlet)">
     <router-outlet #routerOutlet="outlet"></router-outlet>
