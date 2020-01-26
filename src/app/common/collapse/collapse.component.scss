@@ -1,173 +1,35 @@
-@import '../../vars.css';
+/* This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
+ @import '../../vars.css';
 
-.button {
-  display: inline-flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  align-content: center;
-  align-items: center;
+ .collapse {
+     font-family: var(--font);
+     font-weight: var(--font-weight-normal);
 
-  position: relative;
-  margin: 0;
-  padding: 0;
-  cursor: pointer;
-  outline: 0;
-  user-select: none;
-  font-family: var(--font);
-  text-align: center;
-  white-space: nowrap;
-  transition-duration: 200ms;
-  transition-property: background, border-color, color, width;
-  transition-timing-function: ease;
-  border-radius: var(--border-radius-control);
+     &, *, *:before, *:after {
+         box-sizing: border-box;
+     }
 
-  &,
-  *,
-  *:before,
-  *:after {
-    box-sizing: border-box;
-  }
+     &__content {
+         position: relative;
+     }
 
-  &::-moz-focus-inner {
-    padding: 0;
-    border: 0;
-  }
+     &__link {
+         outline: none;
+     }
 
-  & + & {
-    margin-left: var(--gap-s);
-  }
+     &__content {
+         overflow: hidden;
+         visibility: hidden;
+         height: 0;
+         transition: height 0.2s;
+     }
 
-  &__addon {
-    flex: 0 0 auto;
-
-    display: flex;
-    justify-content: center;
-    align-content: center;
-    align-items: center;
-  }
-
-  &__content {
-    flex: 1 0 auto;
-
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    justify-content: center;
-    align-content: center;
-    align-items: center;
-  }
-
-  &__text {
-    font-weight: var(--font-weight-normal);
-    line-height: normal;
-    padding: 0 0 1px;
-  }
-
-  &__icon {
-    display: flex;
-    justify-content: center;
-    align-content: center;
-    align-items: center;
-
-    padding-right: 10px;
-  }
-
-  &_width_available {
-    display: flex;
-    width: 100%;
-  }
-
-  &_type_link {
-    text-decoration: none;
-  }
-
-  &_focused {
-    z-index: 1;
-  }
-
-  &_disabled {
-    cursor: default;
-    pointer-events: none;
-  }
-
-  &_disabled &__icon {
-    opacity: var(--opacity-disabled);
-  }
-
-  &_view_action &__text,
-  &_view_extra &__text,
-  &_view_rounded &__text {
-    font-weight: var(--font-weight-medium);
-  }
-
-  & > :last-child {
-    padding-right: 0;
-  }
-
-  &_size_s {
-    height: 30px;
-    padding: 0 15px;
-    font-size: var(--font-size-s);
-  }
-
-  &_size_s &__icon {
-    margin-left: var(--gap-2xs-neg);
-  }
-
-  &_size_m {
-    height: 40px;
-    padding: 0 var(--gap-l);
-    font-size: var(--font-size-m);
-  }
-
-  &_size_m &__icon {
-    margin-left: var(--gap-xs-neg);
-  }
-
-  &_size_l {
-    height: 50px;
-    padding: 0 25px;
-    font-size: var(--font-size-l);
-  }
-
-  &_size_l &__icon {
-    margin-left: var(--gap-s-neg);
-  }
-
-  &_size_xl {
-    height: 60px;
-    padding: 0 30px;
-    font-size: var(--font-size-xl);
-  }
-
-  &_size_xl &__icon {
-    margin-left: var(--gap-m-neg);
-  }
-
-  &_view_rounded {
-    &.button_size_s {
-      height: calc(30px * 1.1);
-      padding: 0 calc(15px * 1.5);
-      border-radius: calc(15px * 1.1);
-    }
-
-    &.button_size_m {
-      height: calc(40px * 1.1);
-      padding: 0 calc(20px * 1.5);
-      border-radius: calc(20px * 1.1);
-    }
-
-    &.button_size_l {
-      height: calc(50px * 1.1);
-      padding: 0 calc(25px * 1.5);
-      border-radius: calc(25px * 1.1);
-    }
-
-    &.button_size_xl {
-      height: calc(60px * 1.1);
-      padding: 0 calc(30px * 1.5);
-      border-radius: calc(30px * 1.1);
-    }
-  }
-}
+     &_expanded &__content {
+         visibility: visible;
+         height: auto;
+         margin-bottom: 15px;
+     }
+ }

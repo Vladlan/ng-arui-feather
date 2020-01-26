@@ -5,6 +5,7 @@
     <a routerLink="/collapses" routerLinkActive="active">Collapse</a>
     <a routerLink="/icons" routerLinkActive="active">Icon</a>
 </nav>
+
 <div class="app_content" [@routeAnimation]="getAnimationData(routerOutlet)">
     <router-outlet #routerOutlet="outlet"></router-outlet>
 </div>

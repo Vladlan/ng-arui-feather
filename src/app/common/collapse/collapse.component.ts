@@ -8,46 +8,42 @@ import keyboardCode from '../../lib/keyboard-code.js';
   selector: 'aru-collapse',
   styleUrls: ['./collapse.component.scss'],
   template: `
-        <button [attr.type]="type"
-                [class]="styleClass"
-                [ngStyle]="style"
-                [disabled]="disabled"
-                [ngClass]="{
-                        'button': true,
-                        'button_theme_alfa-on-white': true,
-                        'button_size_s':size === 's',
-                        'button_size_m':size === 'm',
-                        'button_size_l':size === 'l',
-                        'button_size_xl':size === 'xl',
-                        'button_view_default': view === 'default' || !view,
-                        'button_view_action': view === 'action',
-                        'button_view_extra': view === 'extra',
-                        'button_view_rounded': view === 'rounded',
-                        'button_pseudo': pseudo,
-                        'button_width_available': width === 'available',
-                        'button_focused': focused === undefined ? _focused : focused,
-                        'button_hovered': hovered === _hovered,
-                        'button_pressed': _pressed,
-                        'button_disabled': disabled
-                      }"
-                (click)="handleClick($event)"
-                (focus)="handleFocus($event)"
-                (blur)="handleBlur($event)"
-                (mouseenter)="handleMouseEnter($event)"
-                (mouseleave)="handleMouseLeave($event)"
-                (mousedown)="handleMouseDown($event)"
-                (mouseup)="handleMouseUp($event)"
-                (mouseout)="handleMouseOut($event)"
-                (keydown)="handleKeyDown($event)"
-                (keyup)="handleKeyUp($event)"
+  {{/*  <div
+    className={ this.cn({
+        expanded
+    }) }
+    id={ this.props.id }
+    data-test-id={ this.props['data-test-id'] }
+>
+    <div
+        ref={ (content) => {
+            this.content = content;
+        } }
+        className={ this.cn('content') }
+    >
+        <div ref={ (contentCase) => {
+            this.contentCase = contentCase;
+        } }
         >
-            <aru-icon *ngIf="icon"
-                      name="{{icon}}"
-                      size="{{size}}"
-                      colored="{{colored}}"
-            ></aru-icon>
-            <ng-content></ng-content>
-        </button>
+            { this.props.children }
+        </div>
+        <ResizeSensor onResize={ this.updateContentHeight } />
+    </div>
+    <Link
+        className={ this.cn('link') }
+        pseudo={ true }
+        icon={
+            <ToggledIcon size='s' />
+        }
+        iconPosition='right'
+        onClick={ this.handleExpandedChange }
+        text={
+            expanded
+                ? this.props.expandedLabel
+                : this.props.collapsedLabel
+        }
+    />
+</div>  */}}
     `,
   encapsulation: ViewEncapsulation.None
 })
